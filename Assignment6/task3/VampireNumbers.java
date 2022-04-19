@@ -47,7 +47,7 @@ public class VampireNumbers {
         }
     }
 
-    // Driver code
+  
 
     public static int Vampire100(String v1) {
 
