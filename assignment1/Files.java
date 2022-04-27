@@ -12,7 +12,7 @@ public class Files {
     public static void main(String[] args)
     {
         ArrayList<File> ListOfFiles=new ArrayList<>();
-        String mainDir = "/home/Desktop";
+        String mainDir = "/home/sandK";
         File file = new File(mainDir);
         Stack<File> s = new Stack<>();
         s.push(file);
@@ -25,28 +25,31 @@ public class Files {
             if (tmpF.isFile()) {
 
                 ListOfFiles.add(tmpF);
-//                    System.out.println(tmpF.getName());
+                System.out.println(tmpF.getName());
             } else if (tmpF.isDirectory()) {
 
                 File[] f = tmpF.listFiles();
-                for (File fpp : f) {
-                    s.push(fpp);
+                for (File f2 : f) {
+                    s.push(f2);
                 }
             }
         }
         Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the pattern of string");
         String pattern =sc.nextLine();
 
         for(File f:ListOfFiles)
         {
 
 
-            String filenamestr=f.getName();
-            if(filenamestr.matches("(.*)"+pattern+"(.*)"))
+            String filename=f.getName();
+            if(filename.matches("(.*)"+pattern+"(.*)"))
             {
                 Path path= Paths.get(f.getName());
                 System.out.println(path.toAbsolutePath());
             }
+            else
+                System.out.println("no files in given pattern");
 
 
         }
